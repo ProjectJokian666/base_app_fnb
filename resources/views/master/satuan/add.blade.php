@@ -13,7 +13,7 @@
 			<div class="card-body">
 				<form action="{{url('master/satuan/create')}}" method="POST" class="row">
 					@csrf
-					<div class="col-12">
+					<div class="col-12 input-group-sm">
 						<label for="satuan" class="form-label">SATUAN</label>
 						<input type="text" class="form-control @error('satuan') is-invalid @enderror" id="satuan" name="satuan" placeholder="MASUKKAN SATUAN" value="{{ old('satuan') }}">
 						@error('satuan')

@@ -36,7 +36,7 @@
 					</div>
 					<div class="col-12 mt-4 d-flex justify-content-between">
 						<button type="submit" class="btn btn-primary btn-sm">SIMPAN</button>
-						<a href="{{url('master/satuan')}}" class="btn btn-danger btn-sm">BATAL</a>
+						<a href="{{url('master/satuan')}}" class="btn btn-danger btn-sm">KEMBALI</a>
 					</div>
 				</form>
 			</div>

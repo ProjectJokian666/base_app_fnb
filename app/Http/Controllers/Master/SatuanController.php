@@ -7,10 +7,20 @@ use Illuminate\Http\Request;
 
 use App\Models\Satuan;
 
+use Illuminate\Support\Facades\Auth;
+
 class SatuanController extends Controller
 {
+    public function akses()
+    {
+        if (Auth()->user()->role=="Kasir") {
+            return redirect('/');
+        }
+    }
+
     public function index()
     {   
+        $this->akses();
         $data = [
             'satuan' => Satuan::all(),
         ];
@@ -19,11 +29,13 @@ class SatuanController extends Controller
 
     public function add()
     {
+        $this->akses();
         return view('master.satuan.add');
     }
 
     public function create(Request $request)
     {
+        $this->akses();
         // dd($request);
         $request->validate([
             'satuan'=>'required|unique:satuans',
@@ -41,6 +53,7 @@ class SatuanController extends Controller
 
     public function update($id)
     {
+        $this->akses();
         $data = Satuan::find($id);
         return view('master.satuan.update',compact('data'));
     }
@@ -48,6 +61,7 @@ class SatuanController extends Controller
     public function patch(Request $request,$id)
     {
         // dd($request,$id);
+        $this->akses();
         $data = Satuan::where('id',$id)->update([
             'satuan'=>strtoupper($request->satuan),
         ]);
@@ -61,6 +75,7 @@ class SatuanController extends Controller
 
     public function delete($id)
     {
+        $this->akses();
         $data = Satuan::where('id',$id)->delete();
         if ($data) {
             return redirect('master/satuan')->with('sukses','Data berhasil dihapus');

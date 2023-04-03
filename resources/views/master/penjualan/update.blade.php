@@ -22,12 +22,12 @@
 				<h4 class="">FORM ADD STOK GUDANG</h4>
 			</div>
 			<div class="card-body">
-				<form action="{{url('master/gudang/update',$data['gudang']->id)}}" method="POST" class="row">
+				<form action="{{url('master/penjualan/update',$data['penjualan']->id)}}" method="POST" class="row">
 					@csrf
 					@method('patch')
 					<div class="col-12 input-group-sm">
 						<label for="nama" class="form-label">NAMA BARANG</label>
-						<input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="MASUKKAN NAMA" value="{{ $data['gudang']->nama }}">
+						<input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="MASUKKAN NAMA" value="{{ $data['penjualan']->nama }}">
 						@error('nama')
 						<div class="invalid-feedback">
 							{{ $message }}
@@ -36,27 +36,8 @@
 					</div>
 
 					<div class="col-12 input-group-sm">
-						<label for="satuan" class="form-label">SATUAN</label>
-						<select id="satuan" name="satuan" class="form-select">
-							@foreach($data['satuan'] as $satuan)
-							<option value="{{$satuan->id}}" <?= $satuan->id==$data['gudang']->id_satuan ? 'selected' : '' ?>>{{$satuan->satuan}}</option>
-							@endforeach
-						</select>
-					</div>
-
-					<div class="col-12 input-group-sm">
-						<label for="stok" class="form-label">STOK</label>
-						<input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" placeholder="MASUKKAN STOK" value="{{$data['gudang']->stok}}">
-						@error('stok')
-						<div class="invalid-feedback">
-							{{ $message }}
-						</div>
-						@enderror
-					</div>
-
-					<div class="col-12 input-group-sm">
 						<label for="hpp" class="form-label">HPP</label>
-						<input type="number" class="form-control @error('hpp') is-invalid @enderror" id="hpp" name="hpp" placeholder="MASUKKAN HPP" value="{{ $data['gudang']->hrg_jual }}">
+						<input type="number" class="form-control @error('hpp') is-invalid @enderror" id="hpp" name="hpp" placeholder="MASUKKAN HPP" value="{{ $data['penjualan']->hrg_jual }}">
 						@error('hpp')
 						<div class="invalid-feedback">
 							{{ $message }}
@@ -66,7 +47,7 @@
 
 					<div class="col-12 mt-4 d-flex justify-content-between">
 						<button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
-						<a href="{{url('master/gudang')}}" class="btn btn-danger btn-sm">KEMBALI</a>
+						<a href="{{url('master/penjualan')}}" class="btn btn-danger btn-sm">KEMBALI</a>
 					</div>
 				</form>
 			</div>

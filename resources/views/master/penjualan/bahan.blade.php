@@ -20,8 +20,8 @@
 		@endif
 		<div class="card">
 			<div class="card-header d-flex justify-content-between align-items-center">
-				<h4 class="">DATA GUDANG</h4>
-				<a href="{{url('master/gudang/add')}}" class="btn btn-primary btn-sm">
+				<h4 class="">DATA PENJUALAN ( BAHAN {{$data['penjualan']->nama}} )</h4>
+				<a href="{{url('master/penjualan/bahan',$data['penjualan']->id)}}/add" class="btn btn-primary btn-sm">
 					TAMBAH
 				</a>
 			</div>
@@ -31,34 +31,17 @@
 						<tr>
 							<th>#</th>
 							<th>Nama</th>
-							<th>Stok</th>
-							<th>Satuan</th>
-							<th>Hpp</th>
+							<th>Jumlah</th>
 							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data['gudang'] as $data)
+						@foreach($data['bahan'] as $bahan)
 						<tr>
 							<td>{{$loop->iteration}}</td>
-							<td>{{$data->nama}}</td>
-							<td>{{$data->stok}}</td>
-							<td>
-								@if($data->satuans!=null)
-								{{$data->satuans->satuan}}
-								@else
-								DATA TELAH DIHAPUS
-								@endif
-							</td>
-							<td>{{$data->hrg_jual}}</td>
-							<td class="d-flex justify-content-center">
-								<a href="{{url('master/gudang/update',$data->id)}}" class="btn btn-primary btn-sm">Ubah</a>
-								<form action="{{url('master/gudang/delete',$data->id)}}" method="POST">
-									@csrf
-									@method('delete')
-									<button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-								</form>
-							</td>
+							<td>{{$bahan->gudangs->nama}}</td>
+							<td>{{$loop->iteration}}</td>
+							<td>{{$loop->iteration}}</td>
 						</tr>
 						@endforeach
 					</tbody>

@@ -10,8 +10,15 @@ use App\Models\Satuan;
 
 class GudangController extends Controller
 {
+    public function akses()
+    {
+        if (Auth()->user()->role=="Kasir") {
+            return redirect('/');
+        }
+    }
     public function index()
     {
+        $this->akses();
         $data = [
             'gudang' => Gudang::all(),
         ];
@@ -21,6 +28,7 @@ class GudangController extends Controller
 
     public function add()
     {   
+        $this->akses();
         if (Satuan::all()->count()<=0) {
             return redirect('master/satuan');
         }
@@ -34,6 +42,7 @@ class GudangController extends Controller
     public function create(Request $request)
     {
         // dd($request);
+        $this->akses();
         $request->validate([
             'nama'=>'required|unique:gudangs',
             'satuan'=>'required',
@@ -44,7 +53,7 @@ class GudangController extends Controller
             'nama'=>strtoupper($request->nama),
             'id_satuan'=>$request->satuan,
             'stok'=>$request->stok,
-            'hpp'=>$request->hpp,
+            'hrg_jual'=>$request->hpp,
         ]);
         if ($data) {
             return redirect('master/gudang')->with('sukses','Data berhasil ditambahkan');
@@ -56,6 +65,7 @@ class GudangController extends Controller
 
     public function update($id)
     {
+        $this->akses();
         $data = [
             'gudang'=>Gudang::find($id),
             'satuan'=>Satuan::all(),
@@ -67,11 +77,12 @@ class GudangController extends Controller
     public function patch(Request $request,$id)
     {
         // dd($request,$id);
+        $this->akses();
         $data = Gudang::where('id',$id)->update([
             'nama'=>strtoupper($request->nama),
             'id_satuan'=>$request->satuan,
             'stok'=>$request->stok,
-            'hpp'=>$request->hpp,
+            'hrg_jual'=>$request->hpp,
         ]);
         if ($data) {
             return redirect('master/gudang/update/'.$id)->with('sukses','Data berhasil diubah');
@@ -83,6 +94,7 @@ class GudangController extends Controller
 
     public function delete($id)
     {
+        $this->akses();
         $data = Gudang::where('id',$id)->delete();
         if ($data) {
             return redirect('master/gudang')->with('sukses','Data berhasil dihapus');

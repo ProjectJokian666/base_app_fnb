@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-sm" style="background-color: #eee;">
   <div class="container">
     <a class="navbar-brand col-4" href="{{url('/')}}">FNB</a>
+    
+    @auth
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,13 +23,8 @@
             <li><a class="dropdown-item" href="{{url('master/satuan')}}">SATUAN</a></li>
             <li><a class="dropdown-item" href="{{url('master/gudang')}}">GUDANG</a></li>
             <li><a class="dropdown-item" href="{{url('master/penjualan')}}">PENJUALAN</a></li>
+            <li><a class="dropdown-item" href="{{url('master/supplier')}}">SUPPLIER</a></li>
           </ul>
-        </li>
-
-        <li style="border:1px solid black;"></li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('supplier')}}">SUPPLIER</a>
         </li>
 
         <li style="border:1px solid black;"></li>
@@ -42,7 +39,7 @@
 
       </ul>
     </div>
-    @auth
+
     <div class="col-4">
       <ul class="navbar-nav justify-content-end">
         <li class="nav-item dropdown">
