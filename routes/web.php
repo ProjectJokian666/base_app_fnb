@@ -80,6 +80,9 @@ Route::middleware('auth')->group(function(){
 				Route::get('{id}',[Penjualan::class,'bahan']);
 				Route::get('{id}/add',[Penjualan::class,'bahan_add'])->name('.add');
 				Route::post('{id}/post',[Penjualan::class,'bahan_post'])->name('.post');
+				Route::patch('{id}/ubah',[Penjualan::class,'bahan_ubah'])->name('.ubah');
+				Route::patch('{id}/ubah_data',[Penjualan::class,'bahan_ubah_data'])->name('.ubah_data');
+				Route::delete('{id}/hapus',[Penjualan::class,'bahan_hapus'])->name('.hapus');
 			});
 
 		});

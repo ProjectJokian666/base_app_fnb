@@ -29,7 +29,7 @@ class AuthenController extends Controller
                     $request->session()->regenerate();
                     return redirect()->intended('superadmin');
                 }
-                dd($request,$data);
+                // dd($request,$data);
                 $this->logout();
             }
             else if ($data->role=='Owner') {

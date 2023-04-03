@@ -21,9 +21,14 @@
 		<div class="card">
 			<div class="card-header d-flex justify-content-between align-items-center">
 				<h4 class="">DATA PENJUALAN ( BAHAN {{$data['penjualan']->nama}} )</h4>
-				<a href="{{url('master/penjualan/bahan',$data['penjualan']->id)}}/add" class="btn btn-primary btn-sm">
-					TAMBAH
-				</a>
+				<div>
+					<a href="{{url('master/penjualan')}}" class="btn btn-success btn-sm">
+						KEMBALI
+					</a>
+					<a href="{{url('master/penjualan/bahan',$data['penjualan']->id)}}/add" class="btn btn-primary btn-sm">
+						TAMBAH
+					</a>
+				</div>
 			</div>
 			<div class="card-body">
 				<table class="table table-sm table-bordered text-center" id="datasatuan">
@@ -39,9 +44,26 @@
 						@foreach($data['bahan'] as $bahan)
 						<tr>
 							<td>{{$loop->iteration}}</td>
-							<td>{{$bahan->gudangs->nama}}</td>
-							<td>{{$loop->iteration}}</td>
-							<td>{{$loop->iteration}}</td>
+							<td>
+								@if($bahan->gudangs!=null)
+								{{$bahan->gudangs->nama}}
+								@else
+								DATA TELAH TERHAPUS
+								@endif
+							</td>
+							<td>{{$bahan->jumlah}}</td>
+							<td class="d-flex justify-content-evenly">
+								<form action="{{url('master/penjualan/bahan',$data['penjualan']->id)}}/ubah" method="POST">
+									@csrf
+									@method('patch')
+									<button type="submit" value="{{$bahan->id_gudang}}" name="id_gudang" class="btn btn-primary btn-sm">Ubah</button>
+								</form>
+								<form action="{{url('master/penjualan/bahan',$data['penjualan']->id)}}/hapus" method="POST">
+									@csrf
+									@method('delete')
+									<button type="submit" value="{{$bahan->id_gudang}}" name="id_gudang" class="btn btn-danger btn-sm">Hapus</button>
+								</form>
+							</td>
 						</tr>
 						@endforeach
 					</tbody>

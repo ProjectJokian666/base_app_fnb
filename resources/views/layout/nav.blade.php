@@ -23,7 +23,7 @@
             <li><a class="dropdown-item" href="{{url('master/satuan')}}">SATUAN</a></li>
             <li><a class="dropdown-item" href="{{url('master/gudang')}}">GUDANG</a></li>
             <li><a class="dropdown-item" href="{{url('master/penjualan')}}">PENJUALAN</a></li>
-            <li><a class="dropdown-item" href="{{url('master/supplier')}}">SUPPLIER</a></li>
+            <!-- <li><a class="dropdown-item" href="{{url('master/supplier')}}">SUPPLIER</a></li> -->
           </ul>
         </li>
 
