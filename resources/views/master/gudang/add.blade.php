@@ -4,8 +4,8 @@
 @endpush
 
 @section('content')
-<div class="row">
-	<div class="col-12">
+<div class="row align-items-center justify-content-center">
+	<div class="col-6">
 		<div class="card">
 			<div class="card-header d-flex justify-content-between align-items-center">
 				<h4 class="">FORM ADD STOK GUDANG</h4>
