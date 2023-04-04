@@ -40,7 +40,13 @@
 						@foreach($data['trx_beli'] as $data)
 						<tr>
 							<td>{{$loop->iteration}}</td>
-							<td>{{$data->gudangs->nama}}</td>
+							<td>
+								@if($data->gudangs!=null)
+								{{$data->gudangs->nama}}
+								@else
+								DATA TELAH DIHAPUS
+								@endif
+							</td>
 							<td>{{$data->jumlah}}</td>
 							<td>{{$data->harga}}</td>
 							<td class="d-flex justify-content-center">

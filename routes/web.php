@@ -93,16 +93,16 @@ Route::middleware('auth')->group(function(){
 	});
 
 	Route::prefix('transaksi')->name('transaksi')->group(function(){
-		
-		Route::prefix('jual')->name('.jual')->group(function(){
-			Route::get('',[Jual::class,'index'])->name('.index');
-		});
 
 		Route::prefix('beli')->name('.beli')->group(function(){
 			Route::get('',[Beli::class,'index'])->name('.index');
 			Route::get('add',[Beli::class,'add'])->name('.add');
 			Route::post('create',[Beli::class,'create'])->name('.create');
 			Route::delete('delete/{id}',[Beli::class,'delete'])->name('.delete');
+		});
+		
+		Route::prefix('jual')->name('.jual')->group(function(){
+			Route::get('',[Jual::class,'index'])->name('.index');
 		});
 
 	});

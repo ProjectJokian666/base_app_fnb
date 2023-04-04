@@ -1,0 +1,14 @@
+SuperAdmin
+-
+
+Owner
+-
+
+Purchasing ( beli barang, aset, dan update stok )
+- expert ( gudang / warehouse )
+-: Purchasing : Beli Barang & Aset
+-: Gudang / WareHouse : update stok & QC
+
+Kasir
+- Jual Produk
+- Lihat Stok ( Toko & Gudang )

@@ -32,8 +32,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle justify-content-end" href="#" data-bs-toggle="dropdown" aria-expanded="false">TRANSAKSI</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{url('transaksi/jual')}}">JUAL</a></li>
             <li><a class="dropdown-item" href="{{url('transaksi/beli')}}">BELI</a></li>
+            <li><a class="dropdown-item" href="{{url('transaksi/jual')}}">JUAL</a></li>
           </ul>
         </li>
 
