@@ -29,4 +29,8 @@ class Gudang extends Model
     {
         return $this->hasMany(Bahan::class,'id_gudang','id');
     }
+    public function trx_belis()
+    {
+        return $this->hasMany(Trx_Beli::class,'id_gudang','id');
+    }
 }
