@@ -12,3 +12,19 @@ Purchasing ( beli barang, aset, dan update stok )
 Kasir
 - Jual Produk
 - Lihat Stok ( Toko & Gudang )
+ -: Toko : 5 - Kasir
+ -: Gudang : 45 - Purchasing (distribusi ?)
+
+Penjualan :
+- 2 Theme
+ -: Jual Barang non Bahan Baku (  )
+ -: Jual Branag FnB ( contoh : Bisa ngurangi stok bahan baku )
+ 	Contoh Corndog Moza (1 sosis, 1 moza, 1 adonan, 1 panir, minyak,)
+ -:
+
+Omzet : Total Uang Masuk
+Margin : Omzet - HPP
+Pngeluaran :
+	- Bahann Baku(Hpp)
+	- Pengeluaran non Bahan baku : Gaji, Sewa, Iklan, Banner,
+Net Profit : Margin - Pengeluaran non bahan baku
